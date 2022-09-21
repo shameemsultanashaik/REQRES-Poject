@@ -36,6 +36,18 @@ public class Users {
 		// System.out.println("Status received => " + response.getStatusLine());
 		System.out.println("Response=>" + response.prettyPrint());
 		Assert.assertEquals(status, 200);
+		//Making change for the userId
+		JsonPath jPath = response.jsonPath();
+
+		// Then simply query the JsonPath object to get a String value of the node
+		// specified by JsonPath: City (Note: You should not put $. in the Java code)
+		String name = jPath.get("userid");
+
+		// Let us print the city variable to see what we got
+		System.out.println("name received from Response " + name);
+
+		// Validate the response
+		Assert.assertEquals(userid, "200");
 
 	}
 
@@ -60,6 +72,8 @@ public class Users {
 		System.out.println("Response Status Code: " + status);
 		System.out.println("Response=>" + response.prettyPrint());
 		Assert.assertEquals(status, 200);
+		
+		
 
 	}
 	
